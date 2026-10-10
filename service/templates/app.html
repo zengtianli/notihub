@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Notihub · 每日复盘</title>
+<style>
+:root{--bg:#fdfcfa;--fg:#1f2328;--muted:#6b7280;--line:#e5e1da;--accent:#9a3412;--bar:#c2703a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}
+.wrap{max-width:1060px;margin:0 auto;padding:30px 28px 50px}header{display:flex;justify-content:space-between;gap:20px;align-items:center}h1{font-size:27px;letter-spacing:-.7px;margin:0}h2{font-size:17px;color:var(--accent);margin:26px 0 12px}h3{font-size:16px;margin:0 0 8px}p{margin:8px 0}.sub,.meta{color:var(--muted);font-size:12px}.sub{margin:3px 0 0}button,input,textarea,select{font:inherit}button{cursor:pointer;border:1px solid var(--line);border-radius:8px;background:white;color:var(--fg);padding:8px 12px;min-height:42px}button:hover{background:#f6f3ee}button:disabled{cursor:wait;opacity:.6}button:focus-visible,textarea:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #dfac81;outline-offset:2px}.primary{background:var(--accent);border-color:var(--accent);color:white}.primary:hover{background:#7c2d12}
+nav{display:flex;gap:8px;margin:24px 0 20px;border-bottom:1px solid var(--line);padding-bottom:12px}nav button[aria-selected=true]{background:#f2ece4;border-color:#dccaba;color:#7c4a24;font-weight:600}.layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px}.dates{display:flex;flex-direction:column;gap:6px;max-height:70vh;overflow:auto;padding:2px}.date-button{text-align:left;width:100%;padding:10px 12px}.date-button b{display:block}.date-button.active{background:#f2ece4;border-color:#dccaba}.date-button .meta{display:block}.date-mobile{display:none}.day-heading{margin-top:0;font-size:23px;color:var(--fg)}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}.card{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff}.card b{display:block;font-size:23px;font-weight:600;letter-spacing:-.5px}.card span{color:var(--muted);font-size:12px}.sum{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;background:#fffdf9;padding:16px 18px;margin:18px 0;overflow-wrap:anywhere}.sum code{background:#f2ece4;border-radius:4px;padding:1px 5px;font-size:12px}.sum pre{overflow:auto}.sum img{max-width:100%}.sum table{display:block;overflow:auto;max-width:100%;border-collapse:collapse}.sum th,.sum td{padding:6px 10px;border:1px solid var(--line)}.sum h1,.sum h2,.sum h3{font-size:17px;letter-spacing:normal;margin:15px 0 7px}.sum a,.line a{color:var(--accent);overflow-wrap:anywhere}.hourmark{margin:22px 0 10px;color:var(--accent);font-size:12px;font-weight:600;border-top:1px solid var(--line);padding-top:8px}.item{display:flex;gap:8px;margin:0 0 20px}.t{flex:0 0 64px;color:var(--muted);font-size:12px;padding-top:3px;font-variant-numeric:tabular-nums}.c{flex:1;min-width:0;border-left:2px solid var(--line);padding-left:12px}.app,.tag{display:inline-block;background:#f2ece4;color:#7c4a24;border-radius:4px;padding:1px 6px;font-size:11px;margin-right:6px}.who{font-weight:600;font-size:13px}.line{color:#33383d;font-size:14px;word-break:break-word;white-space:pre-wrap;margin:4px 0}.item.note .c{border-left-color:var(--accent)}.item.note .app{background:#e7f0e4;color:#39602c}.item.ai .c{border-left-color:#8fb4d4}.item.ai .app{background:#e2ecf7;color:#28527a}.work{list-style:none;padding:0;margin:0}.work li{padding:9px 0;border-bottom:1px solid var(--line)}.work li:last-child{border-bottom:none}.wtop{display:flex;justify-content:space-between;gap:12px;align-items:baseline}.wname{font-weight:600;font-size:14px;overflow-wrap:anywhere}.wmin{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}.wbar{height:5px;background:#f2ece4;border-radius:3px;margin:5px 0 3px}.wbar span{display:block;height:100%;background:var(--bar);border-radius:3px}.empty{color:var(--muted);padding:24px 0}.agenda{list-style:none;padding:0;margin:0}.agenda li{border:1px solid var(--line);border-radius:8px;background:white;padding:12px 14px;margin:10px 0}.agenda .done .ttl,.agenda .dropped .ttl{text-decoration:line-through;color:var(--muted)}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.actions button{font-size:12px;padding:4px 10px}.note-form{border:1px solid var(--line);border-radius:10px;padding:16px;background:white;margin:20px 0}.note-form label{font-weight:600;display:block;margin-bottom:8px}textarea{display:block;resize:vertical;width:100%;min-height:100px;border:1px solid var(--line);border-radius:7px;padding:10px;color:var(--fg);background:#fff}.form-bottom{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:10px}.error{color:#9e241b;background:#fff0ed;border:1px solid #f0c6bf;border-radius:8px;padding:10px 14px;margin:14px 0;white-space:pre-wrap}.success{color:#39602c}.busy{color:var(--muted);font-size:13px}.toolbar{display:flex;gap:10px;align-items:center;justify-content:space-between}.toolbar h2{margin:0}footer{margin-top:32px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);padding-top:12px}[hidden]{display:none!important}
+@media(max-width:700px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.wrap{padding:22px 18px 32px}header{gap:10px}h1{font-size:25px}.layout{display:block}.dates{display:none}.date-mobile{display:block;margin-bottom:18px}.date-mobile label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}select{width:100%;padding:10px;border:1px solid var(--line);background:white;border-radius:8px;color:var(--fg)}.card{padding:10px}.card b{font-size:21px}.cards{gap:7px}.t{flex-basis:43px;font-size:11px}.item{gap:5px}.c{padding-left:10px}.sum{padding:13px}.form-bottom{align-items:flex-start}.day-heading{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1>Notihub</h1><p class="sub">每日复盘 · <span>{{ instance }}</span></p></div><button id="refresh" type="button">刷新</button></header>
+<p id="sync" class="sub" aria-live="polite">正在读取同步状态…</p>
+<div id="error" class="error" role="alert" hidden></div>
+<nav role="tablist" aria-label="视图"><button id="tab-day" role="tab" aria-selected="true" aria-controls="day-panel">每日时间线</button><button id="tab-open" role="tab" aria-selected="false" aria-controls="open-panel">未完成事项</button></nav>
+<section id="day-panel" role="tabpanel" aria-labelledby="tab-day">
+<div class="date-mobile"><label for="date-select">选择日期</label><select id="date-select"></select></div>
+<div class="layout"><aside id="dates" class="dates" aria-label="历史日期"></aside><main>
+<h2 id="day-title" class="day-heading">正在加载…</h2>
+<p id="day-meta" class="meta"></p>
+<div id="cards" class="cards"></div>
+<form id="note-form" class="note-form"><label for="note-text">随手记</label><textarea id="note-text" maxlength="20000" placeholder="记下想法、进展，或需要跟进的事…" required></textarea><div class="form-bottom"><span id="note-status" class="meta" role="status">保存到当前日期</span><button id="save-note" type="submit" class="primary">保存</button></div></form>
+<div id="summary" class="sum" hidden></div>
+<section id="work-section" hidden><h2 id="work-title">AI 协作用时</h2><p id="work-note" class="meta"></p><ul id="work" class="work"></ul></section>
+<section id="day-agenda" hidden><h2>当天事项</h2><ul id="day-agenda-list" class="agenda"></ul></section>
+<h2>时间线</h2><div id="timeline" aria-live="polite"></div>
+</main></div></section>
+<section id="open-panel" role="tabpanel" aria-labelledby="tab-open" hidden><div class="toolbar"><h2>未完成事项</h2><span class="meta">跨日期汇总</span></div><ul id="open-list" class="agenda"></ul></section>
+<footer>通知与 AI 协作记录按采集同步更新；随手记与事项状态在线保存。</footer>
+</div>
+<script>
+'use strict';
+const $ = id => document.getElementById(id);
+let selectedDate = '', days = [], activeTab = 'day', dayVersion = 0, openVersion = 0, feedTimezone = 'UTC';
+let noteAttempt = null;
+const datePattern = /^\d{4}-\d{2}-\d{2}$/;
+const el = (tag, cls, text) => { const node = document.createElement(tag); if(cls) node.className=cls; if(text !== undefined) node.textContent=String(text); return node; };
+function showError(error) { $('error').textContent=error.message || String(error); $('error').hidden=false; }
+function clearError() { $('error').hidden=true; $('error').textContent=''; }
+function asDate(value) { if(value === null || value === undefined || value === '') return null; const d = new Date(typeof value === 'number' ? value * 1000 : value); return Number.isNaN(d.getTime()) ? null : d; }
+function fmt(value, timeOnly=false) { const d=asDate(value); return d ? d.toLocaleString('zh-CN', {timeZone:feedTimezone,...(timeOnly ? {hour:'2-digit',minute:'2-digit',hour12:false} : {month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false})}) : '尚无记录'; }
+async function api(path, options={}) {
+ const controller=new AbortController(), timer=setTimeout(()=>controller.abort(),20000);
+ try {
+  const response=await fetch(path,{...options,credentials:'same-origin',cache:'no-store',signal:controller.signal,headers:{Accept:'application/json',...(options.body ? {'Content-Type':'application/json','X-Notifhub-Request':'1'} : {}),...options.headers}});
+  if(response.redirected || response.status===401 || response.status===403) throw new Error('登录已失效或没有访问权限，请重新打开此页面登录。');
+  const contentType=response.headers.get('content-type') || '';
+  if(!contentType.includes('application/json')) throw new Error('服务未返回数据，请刷新页面或重新登录。');
+  const body=await response.json();
+  if(!response.ok) throw new Error(typeof body.detail==='string' ? body.detail : typeof body.error==='string' ? body.error : '请求失败（'+response.status+'），请稍后重试。');
+  return body;
+ } catch(error) {
+  if(error.name==='AbortError') throw new Error('网络请求超时，请重试；正在编辑的文字仍保留。');
+  if(error instanceof TypeError) throw new Error('无法连接服务，请检查网络后重试。');
+  throw error;
+ } finally { clearTimeout(timer); }
+}
+function appendLinkedText(parent, value) {
+ const text=String(value || ''), pattern=/https?:\/\/[^\s<>"'\u3000-\u303f\uff00-\uffef\u3400-\u9fff]+/gi; let cursor=0;
+ for(const match of text.matchAll(pattern)) {
+  const raw=match[0], url=raw.replace(/[.,;:!?)\]}]+$/g,'');
+  parent.append(document.createTextNode(text.slice(cursor,match.index)));
+  try { const parsed=new URL(url); if(!['http:','https:'].includes(parsed.protocol)) throw new Error(); const a=el('a','',parsed.hostname); a.href=parsed.href;a.target='_blank';a.rel='noopener noreferrer';a.title=url;parent.append(a,document.createTextNode(raw.slice(url.length))); }
+  catch { parent.append(document.createTextNode(raw)); }
+  cursor=match.index+raw.length;
+ }
+ parent.append(document.createTextNode(text.slice(cursor)));
+}
+function fmtDur(m) { m=Math.max(0,Math.round(Number(m) || 0)); return m>=60 ? Math.floor(m/60)+'h'+(m%60 ? String(m%60).padStart(2,'0')+'m' : '') : m+'m'; }
+function renderWork(work) {
+ const list=$('work');list.replaceChildren();
+ const rows=work && Array.isArray(work.rows) ? work.rows : [];
+ $('work-section').hidden=!rows.length;if(!rows.length)return;
+ $('work-title').textContent='AI 协作用时 · '+fmtDur(work.wallMinutes);
+ $('work-note').textContent='按 Claude Code / Codex 会话日志计：间隔 ≤'+(work.idleMinutes || 15)+' 分钟算连续；各项目分别计，合计已去掉并行重叠。';
+ const max=Math.max(1,...rows.map(r=>Number(r.minutes) || 0));
+ for(const r of rows) {
+  const li=el('li',''), top=el('div','wtop'), bar=el('div','wbar'), fill=el('span','');
+  top.append(el('span','wname',r.project),el('span','wmin',fmtDur(r.minutes)));
+  fill.style.width=Math.round((Number(r.minutes) || 0)*100/max)+'%';bar.append(fill);
+  const tools=(r.tools || []).map(t=>t[0]+' '+fmtDur(t[1])).join(' · ');
+  const span=r.first ? fmt(r.first,true)+'–'+fmt(r.last,true) : '';
+  li.append(top,bar,el('div','meta',['输入 '+(r.prompts || 0)+' 条',span,tools].filter(Boolean).join(' · ')));
+  list.append(li);
+ }
+}
+function renderDates() {
+ $('dates').replaceChildren(); $('date-select').replaceChildren();
+ for(const day of days) {
+  const button=el('button','date-button'+(day.date===selectedDate?' active':''));button.type='button';
+  button.setAttribute('aria-current',day.date===selectedDate?'date':'false');
+  button.append(el('b','',day.date),el('span','meta',(day.total || 0)+' 条通知'+(day.aiMinutes ? ' · AI '+fmtDur(day.aiMinutes) : '')));
+  button.addEventListener('click',()=>selectDay(day.date));$('dates').append(button);
+  const option=el('option','',day.date+' · '+(day.total || 0)+' 条');option.value=day.date;$('date-select').append(option);
+ }
+ if(selectedDate && !days.some(d=>d.date===selectedDate)) { const option=el('option','',selectedDate);option.value=selectedDate;$('date-select').prepend(option); }
+ $('date-select').value=selectedDate;
+}
+const aiApps=new Set(['Claude Code','Codex']);
+function timelineItem(item, note=false) {
+ const row=el('article','item'+(note?' note':aiApps.has(item.app)?' ai':'')), content=el('div','c'), heading=el('div','');
+ row.append(el('time','t',fmt(item.ts,true)),content);
+ heading.append(el('span','app',note?'随手记':item.app || '通知'));
+ if(item.who) heading.append(el('span','who',item.who));
+ if(item.missed) heading.append(el('span','meta',' · 未读'));
+ content.append(heading);
+ const lines=note?[item.text]:item.redacted?['内容已隐藏']:item.lines || [];
+ for(const line of lines) { const node=el('div','line');appendLinkedText(node,line);content.append(node); }
+ return row;
+}
+function renderTimeline(day) {
+ const list=[...(day.items || []).map(item=>({item,note:false})),...(day.cloudNotes || []).map(item=>({item,note:true}))];
+ list.sort((a,b)=>(asDate(a.item.ts)?.getTime() || 0)-(asDate(b.item.ts)?.getTime() || 0));
+ $('timeline').replaceChildren();let hour='';
+ for(const entry of list) {
+  const d=asDate(entry.item.ts), next=d ? d.toLocaleString('en-GB',{timeZone:feedTimezone,hour:'2-digit',hourCycle:'h23'})+':00' : '其他记录';
+  if(next!==hour) { $('timeline').append(el('div','hourmark',next));hour=next; }
+  $('timeline').append(timelineItem(entry.item,entry.note));
+ }
+ if(!list.length) $('timeline').append(el('p','empty','这一天还没有记录。'));
+}
+function renderSummary(summary) {
+ const box=$('summary');box.replaceChildren();box.hidden=!summary;if(!summary)return;
+ if(summary.headline)box.append(el('h3','',summary.headline));
+ if(summary.html) {
+  const content=el('div','');
+  // The server renders this field with markdown-it html:false and filters links.
+  // Notification text, titles, and note bodies must never use this HTML path.
+  content.innerHTML=summary.html;
+  for(const a of content.querySelectorAll('a')) { try { const url=new URL(a.getAttribute('href'));if(!['http:','https:'].includes(url.protocol))throw new Error();a.href=url.href;a.target='_blank';a.rel='noopener noreferrer'; }catch{a.removeAttribute('href');} }
+  box.append(content);
+ }
+ if(summary.generatedAt)box.append(el('p','meta','总结生成于 '+fmt(summary.generatedAt)));
+}
+{% if instance == 'personal' %}
+const reminderStates=new Map(), reminderSending=new Set();
+let reminderPollInFlight=false;
+function updateReminderButtons() {
+ for(const button of document.querySelectorAll('button.reminder-push')) {
+  const id=Number(button.dataset.agendaId), state=reminderStates.get(id);
+  const busy=reminderSending.has(id) || ['pending','running'].includes(state?.status);
+  button.disabled=busy;
+  button.textContent=state?.status==='done'?'再次添加提醒事项':'存进提醒事项';
+  const status=button.nextElementSibling;
+  status.className='meta reminder-status'+(state?.status==='done'?' success':'');
+  status.textContent=reminderSending.has(id)?'正在提交…':state?.status==='done'?'已添加到提醒事项':state?.status==='failed'?'添加失败，可重试':busy?'排队中，等待 Mac 处理':'';
+  if(state?.detail) {status.title=String(state.detail);if(state.status==='failed')status.textContent+='：'+String(state.detail);}else status.removeAttribute('title');
+ }
+}
+async function syncReminderState() {
+ if(reminderPollInFlight)return;reminderPollInFlight=true;
+ try {
+  const result=await api('/api/agenda-queue');
+  for(const item of result.items || [])if(item.target==='reminders')reminderStates.set(Number(item.agendaId),item);
+  updateReminderButtons();
+ }catch(error){
+  for(const status of document.querySelectorAll('.reminder-status'))status.textContent='提醒事项队列状态读取失败：'+error.message;
+ }finally{reminderPollInFlight=false;}
+}
+function appendReminderButton(actions,item) {
+ if(!Number.isSafeInteger(item.id))return;
+ const button=el('button','reminder-push','存进提醒事项'),status=el('span','meta reminder-status','');
+ button.type='button';button.dataset.agendaId=String(item.id);status.setAttribute('role','status');
+ button.addEventListener('click',async()=>{
+  if(button.disabled || reminderSending.has(item.id))return;
+  reminderSending.add(item.id);updateReminderButtons();
+  try {
+   await api('/api/agenda-queue',{method:'POST',body:JSON.stringify({agendaId:Number(item.id),title:item.title,target:'reminders',force:true})});
+   reminderStates.set(item.id,{status:'pending'});
+   setTimeout(syncReminderState,3000);
+  }catch(error){
+   reminderStates.set(item.id,{status:'failed',detail:error.message});
+  }finally{reminderSending.delete(item.id);updateReminderButtons();}
+ });
+ actions.append(button,status);
+}
+{% endif %}
+function renderAgenda(items,target) {
+ target.replaceChildren();
+ for(const item of items) {
+  const row=el('li',item.status || 'open');row.append(el('div','ttl',item.title));
+  const meta=[item.srcDate,item.who,item.dueTS?'到期 '+fmt(item.dueTS):'',item.status==='done'?'已完成':item.status==='dropped'?'已放下':'待处理'].filter(Boolean).join(' · ');
+  row.append(el('div','meta',meta));
+  if(item.note) {const text=el('div','line');appendLinkedText(text,item.note);row.append(text);}
+  const actions=el('div','actions');
+  const states=item.status==='open' ? [['done','完成'],['dropped','放下']] : [['open','重新打开']];
+  for(const [status,label] of states) {
+   const button=el('button','',label);button.type='button';button.disabled=!Number.isSafeInteger(item.id);
+   button.addEventListener('click',async()=>{
+    const buttons=[...actions.querySelectorAll('button')];buttons.forEach(b=>b.disabled=true);clearError();
+    try { await api('/api/agenda/'+item.id,{method:'PATCH',body:JSON.stringify({status})}); item.status=status; await Promise.all([loadDay(selectedDate),loadOpen()]); }
+    catch(error) {showError(error);} finally {buttons.forEach(b=>b.disabled=false);
+{% if instance == 'personal' %}
+     updateReminderButtons();
+{% endif %}
+    }
+   });actions.append(button);
+  }
+{% if instance == 'personal' %}
+  appendReminderButton(actions,item);
+{% endif %}
+  row.append(actions);target.append(row);
+ }
+ if(!items.length)target.append(el('li','empty','目前没有未完成事项。'));
+{% if instance == 'personal' %}
+ updateReminderButtons();
+{% endif %}
+}
+async function loadDay(date) {
+ if(!date)return;const version=++dayVersion;
+ $('day-title').textContent=date;$('day-meta').textContent='正在读取…';
+ try {
+  const day=await api('/api/day/'+encodeURIComponent(date));if(version!==dayVersion)return;
+  $('day-meta').textContent=(day.first?'首条 '+fmt(day.first,true)+' · 末条 '+fmt(day.last,true)+' · ':'')+'已折叠 '+(day.muted || 0)+' 条噪音';
+  $('cards').replaceChildren();
+  const cards=[[day.total || 0,'通知'],[(day.items || []).length,'合并记录'],[(day.notes || 0)+(day.cloudNotes || []).length,'随手记']];
+  if(day.work)cards.push([fmtDur(day.work.wallMinutes),'AI 协作用时'],[day.aiInputs || 0,'AI 输入']);
+  for(const [value,label] of cards) {const card=el('div','card');card.append(el('b','',value),el('span','',label));$('cards').append(card);}
+  renderSummary(day.summary);renderWork(day.work);renderTimeline(day);$('day-agenda').hidden=!(day.agenda || []).length;renderAgenda(day.agenda || [],$('day-agenda-list'));
+ } catch(error) { if(version===dayVersion){$('day-meta').textContent='读取失败';$('cards').replaceChildren();$('summary').hidden=true;$('work-section').hidden=true;$('day-agenda').hidden=true;$('timeline').replaceChildren(el('p','empty','暂时无法读取这一天，请点击刷新重试。'));showError(error);} throw error; }
+}
+async function loadOpen() {const version=++openVersion;const data=await api('/api/open');if(version===openVersion)renderAgenda(data.items || [],$('open-list'));}
+async function selectDay(date) {
+ if(!datePattern.test(date))return;selectedDate=date;clearError();renderDates();
+ $('cards').replaceChildren();$('summary').hidden=true;$('work-section').hidden=true;$('day-agenda').hidden=true;$('timeline').replaceChildren(el('p','busy','正在读取记录…'));
+ const url=new URL(location.href);url.searchParams.set('date',date);history.replaceState({},'',url);
+ $('note-status').textContent='保存到 '+date;
+ try{await loadDay(date);}catch{}
+}
+async function refresh() {
+ $('refresh').disabled=true;clearError();
+ try {
+  const data=await api('/api/index');feedTimezone=data.timezone || 'UTC';days=(data.days || []).filter(d=>datePattern.test(d.date)).sort((a,b)=>b.date.localeCompare(a.date));
+  $('sync').textContent='最后同步：'+fmt(data.lastSync ?? data.generatedAt)+' · '+feedTimezone;
+  if(!selectedDate) {const date=new URL(location.href).searchParams.get('date');selectedDate=datePattern.test(date || '')?date:days[0]?.date || new Date().toLocaleDateString('sv-SE',{timeZone:feedTimezone});}
+  renderDates();$('note-status').textContent='保存到 '+selectedDate;
+  await Promise.all([loadDay(selectedDate),loadOpen()]);
+ }catch(error){showError(error);if(!$('sync').textContent.startsWith('最后同步'))$('sync').textContent='同步状态读取失败';}
+ finally{$('refresh').disabled=false;}
+}
+function setTab(tab) {activeTab=tab;for(const name of ['day','open']){$('tab-'+name).setAttribute('aria-selected',String(name===tab));$('tab-'+name).tabIndex=name===tab?0:-1;$(name+'-panel').hidden=name!==tab;}if(tab==='open')loadOpen().catch(showError);}
+$('tab-day').addEventListener('click',()=>setTab('day'));$('tab-open').addEventListener('click',()=>setTab('open'));
+document.querySelector('nav').addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight'].includes(event.key)){event.preventDefault();const tab=activeTab==='day'?'open':'day';setTab(tab);$('tab-'+tab).focus();}});
+$('date-select').addEventListener('change',event=>selectDay(event.target.value));$('refresh').addEventListener('click',refresh);
+$('note-form').addEventListener('submit',async event=>{
+ event.preventDefault();const text=$('note-text').value.trim();if(!text || !selectedDate)return;
+ const date=selectedDate;if(!noteAttempt || noteAttempt.text!==text || noteAttempt.date!==date)noteAttempt={text,date,idempotencyKey:crypto.randomUUID()};
+ const attempt=noteAttempt;$('save-note').disabled=true;$('note-text').readOnly=true;clearError();$('note-status').textContent='正在保存…';
+ try {
+  await api('/api/notes',{method:'POST',body:JSON.stringify(attempt)});
+  $('note-text').value='';noteAttempt=null;$('note-status').textContent='已保存到 '+date;$('note-status').className='meta success';
+  try {await loadDay(selectedDate);}catch(error){showError(new Error('随手记已保存，但列表刷新失败。请点击刷新，不必重新保存。'));}
+ }catch(error){$('note-status').textContent='未确认保存，请重试（不会重复新增）';$('note-status').className='meta';showError(error);}
+ finally{$('save-note').disabled=false;$('note-text').readOnly=false;}
+});
+window.addEventListener('offline',()=>showError(new Error('网络已断开，当前输入会保留；恢复连接后可重试。')));
+document.addEventListener('DOMContentLoaded',refresh);
+{% if instance == 'personal' %}
+document.addEventListener('DOMContentLoaded',()=>{syncReminderState();setInterval(syncReminderState,15000);});
+{% endif %}
+</script>
+</body>
+</html>

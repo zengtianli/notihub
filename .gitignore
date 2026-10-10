@@ -1,0 +1,14 @@
+.build/
+.venv/
+.test-data/
+__pycache__/
+*.pyc
+*.sqlite*
+*.db*
+.env*
+*.p12
+*.mobileprovision
+*.provisionprofile
+build/
+DerivedData/
+*.xcodeproj/

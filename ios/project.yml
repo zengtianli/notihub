@@ -1,0 +1,126 @@
+name: DayDeck
+options:
+  bundleIdPrefix: cyou.tianli
+  # visionOS 26：与舰队其余产品同一个下限（试点 PointsDeck 的 WidgetKit 在 26 以前不可用；本 App 没有小组件，
+  # 但不另起一个版本线）。watchOS 11：手表 App 与表盘复杂功能（独立 target，见文件末尾；xcodegen 不许把
+  # watchOS 写进 supportedDestinations）。
+  deploymentTarget: { iOS: "18.0", visionOS: "26.0", watchOS: "11.0" }
+  createIntermediateGroups: true
+settings:
+  base:
+    CODE_SIGN_STYLE: Automatic
+    DEVELOPMENT_TEAM: ""
+    ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.2.1"
+targets:
+  DayDeck:
+    type: application
+    # iPhone / iPad / Vision Pro 是同一个 target（同名、同图标、同 bundle id）；Apple Watch 是下面单独的
+    # DayDeckWatch，iOS 构建时嵌进 DayDeck.app/Watch/。
+    supportedDestinations: [iOS, visionOS]   # 2026-09-27 用户：Mac 端只留 Notihub（notifhub-bar-mac），本工程不出 Mac 版
+    sources:
+      # 总部共享：macOS 侧给 iOS-only SwiftUI 修饰符提供同名 no-op，调用点不改（multiplatform.py 注入）
+      - path: Shared/PlatformCompat.swift
+      # 总部共享：平台验收车道契约（lane-ready 日志、iPad 横屏请求），不传 -lane_* 参数时什么都不做
+      - path: Shared/LaneSignal.swift
+      - path: Shared/AppLifecycle.swift
+      - path: Shared/AppConfiguration.swift
+      - path: Shared/AppLifecycleMobile.swift
+      - path: Shared/RemoteUI.swift
+      - path: Sources
+      # ⚠ 图标资产必须在这儿列出来。漏了的表现是**编译通过、装机通过、桌面白板**——
+      #   ASSETCATALOG_COMPILER_APPICON_NAME 指向一个不在工程里的 catalog,
+      #   actool 根本没被调起,全程零报错。
+      #   AppIcon.solidimagestack（同一资产目录）是 Vision Pro 的图标，缺了同样零报错。
+      - path: Resources/Assets.xcassets
+    dependencies:
+      # 手表 App 只随 iOS 包走（DayDeck.app/Watch/）；visionOS 包里不带
+      - target: DayDeckWatch
+        destinationFilters: [iOS]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: cyou.tianli.daydeck
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Notihub   # 2026-09-27 DayDeck 并入 Notihub，与 Mac 端同名同图标
+        # 四方向全给:universal(iPhone+iPad)app 上 TestFlight 时 ASC 强制要求
+        # iPad 分屏四方向不能缺,只给 Portrait 会在上传阶段被拒。
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        # 出口合规:声明不使用非豁免加密 → TestFlight 每次传新包不再弹问卷。
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NotihubServiceURL: "https://day.example.invalid"
+        # 2026-09-29 需求卡：手机端直接写入提醒事项 + 复盘页读当天提醒（EventKit，iOS 18 只需完全访问的 key）
+        INFOPLIST_KEY_NSRemindersFullAccessUsageDescription: "把你选中的待办加入提醒事项，并在复盘页显示当天的提醒。读取的提醒只在本机显示，不会上传。"
+        CURRENT_PROJECT_VERSION: "6"
+    scheme:
+      testTargets: []
+      configVariants: []
+
+  # ── Apple Watch ───────────────────────────────────────────────────────────
+  # 抬腕看今天的通知：几件没点开、来了多少、从哪来、要点。数据由 iPhone 算好经 WatchConnectivity 递过来
+  # （Sources/WatchLink.swift → Watch/WatchDigestReceiver.swift），手表不联网、不持闸密码、不开长连接。
+  # 与 iPhone 共用同一份模型与规则（Models / AgendaBuckets / WatchDigest / DemoFeed），不另写一套。
+  DayDeckWatch:
+    type: application
+    platform: watchOS
+    sources:
+      - path: Shared/PlatformCompat.swift
+      - path: Shared/LaneSignal.swift
+      - path: Shared/RemoteUI.swift
+      - path: Sources/Models.swift
+      - path: Sources/AgendaBuckets.swift
+      - path: Sources/WatchDigest.swift
+      - path: Sources/DemoFeed.swift
+      - path: Sources/Palette.swift
+      - path: Watch
+        excludes: ["*.plist"]
+      # ⚠ 同主 App：资产目录不列进来，手表包零报错地没有图标（AppIcon 里 platform: watchos 那张只有手表 actool 认）。
+      - path: Resources/Assets.xcassets
+    dependencies:
+      - target: DayDeckWatchWidget
+    # ⚠ xcodegen 的 info.path 是**生成目标**，不是「用这个现成文件」：内容只写在 properties 里。
+    info:
+      path: Watch/Info.plist
+      properties:
+        CFBundleDisplayName: Notihub
+        # 版本必须与 iPhone 主 App 一致（App Store 拒收不一致的包）；不写时 xcodegen 默认填 1.0。
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        WKApplication: true
+        WKCompanionAppBundleIdentifier: cyou.tianli.daydeck
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: cyou.tianli.daydeck.watchkitapp
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_ENTITLEMENTS: Watch.entitlements
+        CURRENT_PROJECT_VERSION: "6"
+    scheme: {}
+  # 表盘复杂功能：今天还有几件没点开（圆形 / 四角 / 一行字 / 矩形），只读手表 App 落在共享钥匙串里的那份摘要。
+  DayDeckWatchWidget:
+    type: app-extension
+    platform: watchOS
+    info:
+      path: WatchWidget/Info.plist
+      properties:
+        CFBundleDisplayName: Notihub
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+    sources:
+      - path: WatchWidget
+        excludes: ["*.plist"]
+      - path: Watch/ComplicationViews.swift
+      - path: Watch/DigestVault.swift
+      - path: Shared/RemoteUI.swift
+      - path: Sources/Models.swift
+      - path: Sources/AgendaBuckets.swift
+      - path: Sources/WatchDigest.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: cyou.tianli.daydeck.watchkitapp.widget
+        CODE_SIGN_ENTITLEMENTS: WatchWidget.entitlements
+        CURRENT_PROJECT_VERSION: "6"

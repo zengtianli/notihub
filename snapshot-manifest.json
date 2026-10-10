@@ -1,0 +1,645 @@
+{
+  "schema": 1,
+  "source_commits": {
+    "mac": "4e0ed30a648bc1f20e4903bb5e4c7b311b453a34",
+    "cli": "8e291a8d66e6e7a3ccd7298e0dbb9744aa605148",
+    "ios/01-源程序": "b080defb027bd79be14af23dd3905a411b27a99e",
+    ".": "a0b258eee34f1345b17cbc23595dad337076fb16"
+  },
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "d4f3f4a1c1dae0b7754cb64bc898eadd828ffc447733ce906b4297a145ba1e33"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "3c7c4088d34039f161b45ee5b1da7bcce91b13b91fc5dc950d798128d51b7f3a"
+    },
+    {
+      "path": "README.md",
+      "sha256": "711ab9ef3cc8621dbde60e5ad042334a1da496c377cc098736ec24c5b73fa4a8"
+    },
+    {
+      "path": "README_EN.md",
+      "sha256": "fea86f5048310d7b31920b9b2bef574d7a128b3954fb2fe47dcfeed6ab292ce8"
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.md",
+      "sha256": "8badd50668814b6437541d4fe115d500b17da847da207f2c0348a0c32d6972f2"
+    },
+    {
+      "path": "cli/Package.swift",
+      "sha256": "d2071e7c3987d5531e12b958ed14d003f960d2dc8a0f216c3aef2d5f2a2c57dd"
+    },
+    {
+      "path": "cli/Sources/notifhub/AIWork.swift",
+      "sha256": "f25b30e2b194fcb512cd48e3ba20b9e30c6cd7d88340289f24f5669e6f68f1d6"
+    },
+    {
+      "path": "cli/Sources/notifhub/Agenda.swift",
+      "sha256": "4b449580573fffda0c75a6e90f49ae706ce15fdcd6bb23559f341794569d1fdd"
+    },
+    {
+      "path": "cli/Sources/notifhub/AgendaQueue.swift",
+      "sha256": "3221ca519b478da01f3a163ba37965e1c8bb6a057da8d8e2853e179c6d55ee3e"
+    },
+    {
+      "path": "cli/Sources/notifhub/AppleExport.swift",
+      "sha256": "b6adc08dedb4f7ff72d5570e545721e8706facab786e489b718b6b5756db1244"
+    },
+    {
+      "path": "cli/Sources/notifhub/CLI.swift",
+      "sha256": "3a0e58190bc67604e9be0bff5e81b76a219da1734ee706d469f9bd77a27d3bb3"
+    },
+    {
+      "path": "cli/Sources/notifhub/Cloud.swift",
+      "sha256": "37482ccbfdbfcbb0264a6ce893b50aa34300bbe42c691e3de27c1a5b4002e88e"
+    },
+    {
+      "path": "cli/Sources/notifhub/CloudCLI.swift",
+      "sha256": "1b5c316973b2f8408d943c756202972e0626ce752fada0e481f09d59269e9ea6"
+    },
+    {
+      "path": "cli/Sources/notifhub/CloudSync.swift",
+      "sha256": "b8f3981b649e62004c7313f2ab366e79da4ff0e4ab0216c4f5c0abfbf165203c"
+    },
+    {
+      "path": "cli/Sources/notifhub/Collectors.swift",
+      "sha256": "5851b7897b51757b391ef5fb8c525b73bea4888cd6779f859ef64d0c1e68b6fc"
+    },
+    {
+      "path": "cli/Sources/notifhub/Core.swift",
+      "sha256": "2a52ae503a75671f4f500387ba6e451f11147bcd4ea09f1a22e52ad0a4e9fb02"
+    },
+    {
+      "path": "cli/Sources/notifhub/Daemon.swift",
+      "sha256": "367c104cf67e96b15797ea5ed2bc9fa661425ccdc20c8b2e1ff69b949849ce1e"
+    },
+    {
+      "path": "cli/Sources/notifhub/Data/DataCLI.swift",
+      "sha256": "04e9aa171edbfad3daec70c8333ecf8d2a1c1316b4411ce8550ed386a061405e"
+    },
+    {
+      "path": "cli/Sources/notifhub/Data/Domains.swift",
+      "sha256": "28b33affdb3e64e4c6b997a1b18202aba24ec3460b5f6cd04f6edd075a012d82"
+    },
+    {
+      "path": "cli/Sources/notifhub/Data/Exporter.swift",
+      "sha256": "def899c73f1e95865fc91b8ac51efc8d3689876497d0734a537dc735931b489f"
+    },
+    {
+      "path": "cli/Sources/notifhub/Data/Extractor.swift",
+      "sha256": "1f1d887fda55d0e51710b5ec7a31c509a372b6df9302b4cd187a37183bab7bfa"
+    },
+    {
+      "path": "cli/Sources/notifhub/Data/IMessageBody.swift",
+      "sha256": "3dc165d119e51c1a8b481650c6b0887255633caf5de3a62d97c431ac3c7d5323"
+    },
+    {
+      "path": "cli/Sources/notifhub/Data/People.swift",
+      "sha256": "c3e643542d032d4025fc59c5bba3e0b24124c98348802b83cd54ab7aa7de538c"
+    },
+    {
+      "path": "cli/Sources/notifhub/Data/ROSqlite.swift",
+      "sha256": "f589e5a3e138670dfc621b3bc94d1d0a9975c78f0cd78ec1b934c519ffb0d86c"
+    },
+    {
+      "path": "cli/Sources/notifhub/Help.swift",
+      "sha256": "4deacefea37116ed8dfb7e29133c6fda57509aed461f82998173763e8bea6786"
+    },
+    {
+      "path": "cli/Sources/notifhub/Install.swift",
+      "sha256": "c24cefeae40f0b489843289ef10fcd96a45b52c8c392672fe3b71353424e96b7"
+    },
+    {
+      "path": "cli/Sources/notifhub/Instance.swift",
+      "sha256": "f96574eaa2fdc59f4c64f8b337f7c56fd2a54e54343f625342827525b1ce0e03"
+    },
+    {
+      "path": "cli/Sources/notifhub/JSONFeed.swift",
+      "sha256": "8d6733851f56ef1ad9603ee019a707cb1ab5b4841cde6fa75f31e84ee6c427d0"
+    },
+    {
+      "path": "cli/Sources/notifhub/LifecycleRelay.swift",
+      "sha256": "38c2f2b0756679de836752a40cfab575779df57a93543d9b1cc2743fe26d2bcb"
+    },
+    {
+      "path": "cli/Sources/notifhub/MailCollector.swift",
+      "sha256": "ea8dcec5373de1741ff8e2112cd9d3e3cd060ed3768402476f6970e9a04338a3"
+    },
+    {
+      "path": "cli/Sources/notifhub/Publish.swift",
+      "sha256": "bb9ce7695af469e084bf4ba3215e101d426025b06c06838fbd6172b85142891f"
+    },
+    {
+      "path": "cli/Sources/notifhub/Recap.swift",
+      "sha256": "04ae63df1849a8f69d1904dab73b17b4f3b9026b1c1eac46296764aaf56a6bf9"
+    },
+    {
+      "path": "cli/Sources/notifhub/Remain.swift",
+      "sha256": "88c4e7b0ae046217a9de5f8140c5b142c95f4e08cd24862dd185b75c989f6f54"
+    },
+    {
+      "path": "cli/Sources/notifhub/ReminderLookup.swift",
+      "sha256": "2de2ba487983e87bbd5ce08be78b7b47fa33687b6102ae85a2435e5f819f75e6"
+    },
+    {
+      "path": "cli/Sources/notifhub/Report.swift",
+      "sha256": "cc83a7d9eabfd58518b5571f3ed2c8573dcd699447c19ff60122dab0dfcb1090"
+    },
+    {
+      "path": "cli/Sources/notifhub/Rules.swift",
+      "sha256": "e71ddc5e81265c0dc46f1c09ca2842ebccd6b600a8962f32f719e175f6736313"
+    },
+    {
+      "path": "cli/Sources/notifhub/Scheduler.swift",
+      "sha256": "32064fc2082bd2c0f133fbf993e72820b486ffee7a99f0926258e39cdf5f6d33"
+    },
+    {
+      "path": "cli/Sources/notifhub/SelfTest.swift",
+      "sha256": "acd566f8a2be23570c3f5fbbda04154132cfdb63a765e992226b3efe975bd4a7"
+    },
+    {
+      "path": "cli/Sources/notifhub/SelfTestAgent.swift",
+      "sha256": "09819f89adf709d38222fab0e6412dcf9a60700894b4dc5a5f5eaf0f365cbffc"
+    },
+    {
+      "path": "cli/Sources/notifhub/SelfTestJobs.swift",
+      "sha256": "adc289a0256223b8ec8b2bcfaa6672a50283b008d2a456dae8580e9715be5046"
+    },
+    {
+      "path": "cli/Sources/notifhub/SelfTestSync.swift",
+      "sha256": "9c4026f9a9071265c2e30df22aee96c43682f6721182ee99de2d1d09dca16c2d"
+    },
+    {
+      "path": "cli/Sources/notifhub/Store.swift",
+      "sha256": "8c21294e2f39ada6b6483566fc9f1d24ee6424bd41c94c5331a422b88e4dcad8"
+    },
+    {
+      "path": "cli/Sources/notifhub/Summary.swift",
+      "sha256": "3f6844a9b40fa772d8876df4c4f1a6cb6e872e559b4824da341a894900fa8b16"
+    },
+    {
+      "path": "cli/Sources/notifhub/Today.swift",
+      "sha256": "574bc1108ebb614070ff26ee56d696d2623bfcb3402134c4b5c4fe87dc9cb8b4"
+    },
+    {
+      "path": "cli/Sources/notifhub/TodayCLI.swift",
+      "sha256": "a5b6dc69e9f003f2b9504ba9b04d60aaded6bc44d1a557daa843a5caab73ef35"
+    },
+    {
+      "path": "cli/Sources/notifhub/main.swift",
+      "sha256": "f62260856caa3d132202b0f749fba5d125a35852d82f0762259e71ac4fb938ad"
+    },
+    {
+      "path": "cli/Tests/notifhubTests/ReminderTests.swift",
+      "sha256": "e0549cfcfd7f175d642be4be7b6acbe21aa152c530e308d40c7029e76b534a87"
+    },
+    {
+      "path": "examples/cloud-demo.json",
+      "sha256": "075479ef39958b8c83d80f06d3f7b82aa1a2cbfd829ffeaa3084fa824e069843"
+    },
+    {
+      "path": "examples/instance.json",
+      "sha256": "2d84c53aa786445320c57edaf7b77005574c9f42077b8b846bf91678d35ec38c"
+    },
+    {
+      "path": "examples/rules.json",
+      "sha256": "013448433b187647a2e31d3730e358dfc45f1e3638a5bb8a0b3ccbdb1d706834"
+    },
+    {
+      "path": "ios/Package.swift",
+      "sha256": "d2702172be6d92f4cddbf1fc48ef84fc150ae6067c6d8e2f23ed75279422b627"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AccentColor.colorset/Contents.json",
+      "sha256": "57694bc02b9cf32e66eff29bc5a447285c2839bcc1b7c74be7999a7c7ec3814b"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.appiconset/Contents.json",
+      "sha256": "d966e1cabdf15246cc3538dd6721e8e330796b3d830bce7f95344925f03c147e"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png",
+      "sha256": "848e1308b67ad7b867dc9f3995450f763eeaa5d94722576c8b6570a43c1aab29"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Back.solidimagestacklayer/Content.imageset/Contents.json",
+      "sha256": "be4825f0a347ae4ebb483201e88961c9695b550b3b793a87a85b5fccad5bd0af"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Back.solidimagestacklayer/Content.imageset/back.png",
+      "sha256": "709a43e4f4d28977bbe09c81d3c6fc36c0a2c84419d99f1c149d664d538be47e"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Back.solidimagestacklayer/Contents.json",
+      "sha256": "f5fb0e1f3a8142892ed092efb5955c1c2cc537003a89ad7bbdb9dade7fe8985f"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Contents.json",
+      "sha256": "de2c28d91cfa6311521f32d804ee3d8433641b775a8818605896073fa31c07fa"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Front.solidimagestacklayer/Content.imageset/Contents.json",
+      "sha256": "951bfa32a0a4f7c7dc7ff27165d74a1830892e911582ea4ea60e3a1e6a1c7afe"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Front.solidimagestacklayer/Content.imageset/front.png",
+      "sha256": "265149d454822c2c808720c61f5a4317c0bfda56fc96598ea7b19b6ea52c5dd1"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Front.solidimagestacklayer/Contents.json",
+      "sha256": "f5fb0e1f3a8142892ed092efb5955c1c2cc537003a89ad7bbdb9dade7fe8985f"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Middle.solidimagestacklayer/Content.imageset/Contents.json",
+      "sha256": "3996ac89ef039944ca786a64bfc5b6b1aacc367f8ff1732384da7a125bcbdc61"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Middle.solidimagestacklayer/Content.imageset/middle.png",
+      "sha256": "265149d454822c2c808720c61f5a4317c0bfda56fc96598ea7b19b6ea52c5dd1"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/AppIcon.solidimagestack/Middle.solidimagestacklayer/Contents.json",
+      "sha256": "f5fb0e1f3a8142892ed092efb5955c1c2cc537003a89ad7bbdb9dade7fe8985f"
+    },
+    {
+      "path": "ios/Resources/Assets.xcassets/Contents.json",
+      "sha256": "10e3b5dc202f1cd9fad1f688c8fc9fe9e9669bf3f8295e67d216b10fd99b6f49"
+    },
+    {
+      "path": "ios/Shared/AppConfiguration.swift",
+      "sha256": "75802ffe936e95516795f0870f3aaf26d279948697bee9dab1616377f70d0f38"
+    },
+    {
+      "path": "ios/Shared/AppLifecycle.swift",
+      "sha256": "03ae06f2e2ad0477716686843b121e35d6575c96751561601f2a7291c0bc4ad8"
+    },
+    {
+      "path": "ios/Shared/AppLifecycleMobile.swift",
+      "sha256": "7f83b7087e1019258f3b5f46a4b54e0ae97ef0f7debc0925345f0de883feb6d1"
+    },
+    {
+      "path": "ios/Shared/LaneSignal.swift",
+      "sha256": "198392da079a2c5d6fe524dd88c269a57a5b6ac820b85960382178c1661e0ea5"
+    },
+    {
+      "path": "ios/Shared/PlatformCompat.swift",
+      "sha256": "dfc421d4e2ac678b17ef0de769d5741b7224e1b007f6af874e0a85ed8c465464"
+    },
+    {
+      "path": "ios/Shared/RemoteUI.swift",
+      "sha256": "8fe0187b483112621bd46ab54f84d80a370123d84049decb895b763ddb2b71d7"
+    },
+    {
+      "path": "ios/Sources/API.swift",
+      "sha256": "71b7a91e590824ef2fda42dac21645ad5903d71fa2b46086ffba2a8306961609"
+    },
+    {
+      "path": "ios/Sources/Adaptive.swift",
+      "sha256": "dc9427f6b08df4f82ee9ec17c1bdfe918e5b44dfbcc71f57f6dbfb09c504b5a3"
+    },
+    {
+      "path": "ios/Sources/AgendaBuckets.swift",
+      "sha256": "26536003f01b34bd91f00134e0e94eafe1b8e5806ae81b5ade8fd65f75f3d515"
+    },
+    {
+      "path": "ios/Sources/App.swift",
+      "sha256": "6c9d0eb9d65498b4e2f27aecfef7ea53ed661fe106e4d4308098ab7e38c1235e"
+    },
+    {
+      "path": "ios/Sources/DemoData.swift",
+      "sha256": "fec32f4427e6a19e96d7ab2ac21e1055c3ea0e66e7ac3742d87b32a229f4d480"
+    },
+    {
+      "path": "ios/Sources/DemoFeed.swift",
+      "sha256": "0570ee10825e9c51c625c7981b2280f71dc064a4a749c4056da5605c42e9162a"
+    },
+    {
+      "path": "ios/Sources/DiaryView.swift",
+      "sha256": "60b5fdd07122f288f9567bc625ff3abf0737396cdc203f7b1d955a1c1c3c411d"
+    },
+    {
+      "path": "ios/Sources/Gate.swift",
+      "sha256": "557c3a0f491a924bc0fc2eeb1f3300d36f4263e4461e91a7cb1336f49030f093"
+    },
+    {
+      "path": "ios/Sources/MarkdownView.swift",
+      "sha256": "d34616f68d073b194a0539dab1753e5ec40cb532c0cc57b22cd04c7b8a9593da"
+    },
+    {
+      "path": "ios/Sources/MobileProductLifecycle.swift",
+      "sha256": "c48dc2b491215b470c37f1d47f001f9ef0d7599d0b405ffe272b4fb5c57dd1ad"
+    },
+    {
+      "path": "ios/Sources/Models.swift",
+      "sha256": "ca68be81e2a3fae00f5b356189cb55563362f4c53304c55e8be28e8732e317f5"
+    },
+    {
+      "path": "ios/Sources/Palette.swift",
+      "sha256": "e295cc63517d7619b4f80807fa57c68b7fec42b0f17a1d843628d99070f9fe43"
+    },
+    {
+      "path": "ios/Sources/RecapView.swift",
+      "sha256": "d44f0dbd0d4768431b6ec8eeddbd9efbbf8fe4c606c8e0048cd99169fecd3723"
+    },
+    {
+      "path": "ios/Sources/RegularRootView.swift",
+      "sha256": "4ea6390eb00c6c3b8c3458883925c606e72a85777086050563b317c1edc703a6"
+    },
+    {
+      "path": "ios/Sources/ReminderSelfTest.swift",
+      "sha256": "e66b5ff90c3d1cd44ce561474497d25db33420fed71ec0482deec3903d6df273"
+    },
+    {
+      "path": "ios/Sources/ReminderViews.swift",
+      "sha256": "bf2103ac64b61c04693d9118e063dc93218a65d5891d13d6834b8745b8f753b7"
+    },
+    {
+      "path": "ios/Sources/Reminders.swift",
+      "sha256": "6a4fbb6543fe6649dd5a53a4eb0abd3b22678f51d3cc08ac3abf9092535dc292"
+    },
+    {
+      "path": "ios/Sources/Store.swift",
+      "sha256": "118c4be622b92f3a4b8a98d83186d9aa503cad1253e37607c70057a0068f8e86"
+    },
+    {
+      "path": "ios/Sources/TodayView.swift",
+      "sha256": "d0725fed6c93ca4a03ce3637781c05f99035f3c8e596c1e1aa1a1832183020d8"
+    },
+    {
+      "path": "ios/Sources/WatchDigest.swift",
+      "sha256": "06460c43f51a96eca535c52e6902c2b8a7f8fac22423ff3734016b7a28da2530"
+    },
+    {
+      "path": "ios/Sources/WatchLink.swift",
+      "sha256": "0b14f5e723ac13e6ff0d066f30a25f9c71d0157de527c88fbf2a39ffd1a43128"
+    },
+    {
+      "path": "ios/Sources/Writer.swift",
+      "sha256": "9448b99848aae6eb4d7718e75614371f038754a60c8fb9c065467eb597cb1023"
+    },
+    {
+      "path": "ios/Tests/CloudContractTests.swift",
+      "sha256": "cd288801fef58397318fbc2713b9291af84082e435c29b5e3a4615afe24fac40"
+    },
+    {
+      "path": "ios/Tests/FunctionalityAcceptanceTests.swift",
+      "sha256": "b0707df5a052154f80f5958299b018847cf67baebc3bbcc76741aa2d2eec765c"
+    },
+    {
+      "path": "ios/Tests/PrivacyAcceptanceTests.swift",
+      "sha256": "a4fd75df0d0c19298b9f77d75be94401321bf105856a1d6e62685049e9a3b990"
+    },
+    {
+      "path": "ios/Tests/RecoveryAcceptanceTests.swift",
+      "sha256": "dfcdd26223c42183f412cdcb4b61aacd20f1bf7499b6b1dbd241ed8cfce0a61b"
+    },
+    {
+      "path": "ios/Tests/ReminderTestStore.swift",
+      "sha256": "27818ee695171e52401df6345ab92bcf825ed67336977bcb412a903925efb115"
+    },
+    {
+      "path": "ios/Tests/RemindersFunctionalityAcceptanceTests.swift",
+      "sha256": "4a777a68cc4cc8b72a33bda553220517d4c351c6c690a2c15fa8a2e1ce96ddd1"
+    },
+    {
+      "path": "ios/Tests/RemindersPrivacyAcceptanceTests.swift",
+      "sha256": "8b7892f348b0251cb82a171d72e7b04a581da6a6a8a759c9535e9d78d2910d9b"
+    },
+    {
+      "path": "ios/Tests/RemindersRecoveryAcceptanceTests.swift",
+      "sha256": "777005e4adb7c6e220d960670bb3b58d1c663b192fe0658afc4d42d16edb548c"
+    },
+    {
+      "path": "ios/Tests/RemoteCopyTests.swift",
+      "sha256": "b8ad73496ff8eb064793ca645707931997791ffbbcf3d6a77ac93ae062dd25b7"
+    },
+    {
+      "path": "ios/Tests/WatchDigestTests.swift",
+      "sha256": "97a605ccb7579b56699658b1642b5616e8695a8227c7a0997d26a2ff1db106a3"
+    },
+    {
+      "path": "ios/Watch.entitlements",
+      "sha256": "5f9c5a8e47b1645f9afa49ec1a2c8a55bdeb0105afc9319e9efa8d241116d92b"
+    },
+    {
+      "path": "ios/Watch/ComplicationViews.swift",
+      "sha256": "03471ae0ba187eca239540db516ae9c9339bc1f39e788f9048b178c8dfad25a0"
+    },
+    {
+      "path": "ios/Watch/DigestVault.swift",
+      "sha256": "89f1123a86ecbc638fce1d93497f8e091fa35a1f9bed092b9cad286780051187"
+    },
+    {
+      "path": "ios/Watch/NotihubWatchApp.swift",
+      "sha256": "10aa5acdb594191b8d6fa823a42c4e1e30982da78e1260ce4792abb3688cab4c"
+    },
+    {
+      "path": "ios/Watch/WatchDigestReceiver.swift",
+      "sha256": "41c913cac36875ca8a936126f672ed6cd05a51d29c52f90833f6105dce5ee277"
+    },
+    {
+      "path": "ios/Watch/WatchHomeView.swift",
+      "sha256": "3c1883ca506c7df4407aa3c865bbc3832cf1916a4f8a2e23f7bcdafc45824aa9"
+    },
+    {
+      "path": "ios/WatchWidget.entitlements",
+      "sha256": "5f9c5a8e47b1645f9afa49ec1a2c8a55bdeb0105afc9319e9efa8d241116d92b"
+    },
+    {
+      "path": "ios/WatchWidget/NotihubComplication.swift",
+      "sha256": "71fa499c2e8d3fffc2dec22c04f3a69f39a4e041fd6f8e59c8cba794d73aa36b"
+    },
+    {
+      "path": "ios/project.yml",
+      "sha256": "4e2371916b1aa1b014f947b0c5b7285b1f588c29588d3c1217b93b673f474a18"
+    },
+    {
+      "path": "mac/Package.swift",
+      "sha256": "bf823de569ac962bf5a14bfe3330e7c9982c035a3082089194235fb29abae9b1"
+    },
+    {
+      "path": "mac/Sources/notifhub/AppConfiguration.swift",
+      "sha256": "75802ffe936e95516795f0870f3aaf26d279948697bee9dab1616377f70d0f38"
+    },
+    {
+      "path": "mac/Sources/notifhub/AppLifecycle.swift",
+      "sha256": "03ae06f2e2ad0477716686843b121e35d6575c96751561601f2a7291c0bc4ad8"
+    },
+    {
+      "path": "mac/Sources/notifhub/AppLifecycleCLI.swift",
+      "sha256": "f1d54831c91baf77c58e3daa773ea0c06d02a71ea4aa0e9c4bdf9b656a6d1509"
+    },
+    {
+      "path": "mac/Sources/notifhub/AppLifecycleUI.swift",
+      "sha256": "5c095b042e150df848e4fe5fc498c1070da0ddebff23c942885da5c7f229f70a"
+    },
+    {
+      "path": "mac/Sources/notifhub/CloudModel.swift",
+      "sha256": "f3cb2610edab0e1164b4c21552bf79899bd86b9eab362d5ea59b559a5b5ec88f"
+    },
+    {
+      "path": "mac/Sources/notifhub/CloudWindowView.swift",
+      "sha256": "5188d0e86c0638aa1bc8d0d1b855bd24d46f8ea2e4c26554c47e29fe70caf82a"
+    },
+    {
+      "path": "mac/Sources/notifhub/CollectorUpdate.swift",
+      "sha256": "ab95185b4971d0a9e1ab1055d272219d6a745851ead6b8456fcf81a1dbb1aa0c"
+    },
+    {
+      "path": "mac/Sources/notifhub/DataPageModel.swift",
+      "sha256": "b2d12ca1f945809784db8d9cec091a1034c44b7c0ff698a178832c4e2e9e7664"
+    },
+    {
+      "path": "mac/Sources/notifhub/DataPageView.swift",
+      "sha256": "8ccbde6c92e1964b4264495d94b0216c1fb2ffbb65f52c1b5508718cbdf04df1"
+    },
+    {
+      "path": "mac/Sources/notifhub/DataProbe.swift",
+      "sha256": "f6c46a6d8fa7c495ac201878f1cf02ebf4ecdae8695c67d662ad387374c6e4cc"
+    },
+    {
+      "path": "mac/Sources/notifhub/DataWatch.swift",
+      "sha256": "356fcddd8aeca306a442e4a36a4bcc2cbf884f92f5ddc335b25e19e0f5070a30"
+    },
+    {
+      "path": "mac/Sources/notifhub/DemoCapture.swift",
+      "sha256": "fa687e9c8cc2d70faaabc091f5de4e70a3628753387226ee3bcd81f4f5ba1aa2"
+    },
+    {
+      "path": "mac/Sources/notifhub/LaneSignal.swift",
+      "sha256": "198392da079a2c5d6fe524dd88c269a57a5b6ac820b85960382178c1661e0ea5"
+    },
+    {
+      "path": "mac/Sources/notifhub/NotifhubBarApp.swift",
+      "sha256": "5487c34b01637fbd9c4b1b76c2b68a1d639daa693cb86331b3a276ffe0780dab"
+    },
+    {
+      "path": "mac/Sources/notifhub/ProductLifecycle.swift",
+      "sha256": "b667c1a1e137a5a324101d6cbdbd04e1af301d4ad269403f862c6239f5590db4"
+    },
+    {
+      "path": "mac/Sources/notifhub/RemoteUI.swift",
+      "sha256": "8fe0187b483112621bd46ab54f84d80a370123d84049decb895b763ddb2b71d7"
+    },
+    {
+      "path": "mac/Sources/notifhub/StickiesReader.swift",
+      "sha256": "1cf8e5bdadb8895aac0de4cc095a24a3c392c186026ab2764aca4d8aa84ceb6b"
+    },
+    {
+      "path": "mac/Sources/notifhub/TodayModel.swift",
+      "sha256": "98a932879cfc60bd9ac7dd1f86c6ff006ab3484b071a2de750ceb058c864ae14"
+    },
+    {
+      "path": "mac/Sources/notifhub/TodayPanelView.swift",
+      "sha256": "02b2df0d22820529536a96ebc1d9f1b84c9d03ce0125c603ecad4011f43f1238"
+    },
+    {
+      "path": "mac/Sources/notifhub/UISelfTest.swift",
+      "sha256": "98f272e4d7bd629395573fe4b55d83e92deea07bf6b5b2db787f5ecdcf6cdaea"
+    },
+    {
+      "path": "mac/Sources/notifhub/WindowVisibility.swift",
+      "sha256": "4660d748f6de5f90b7dd068d52ec7d2edd5d366ef55a1a4a556f691774e6d024"
+    },
+    {
+      "path": "mac/Sources/notifhub/shared",
+      "symlink": "../../../cli/Sources/notifhub"
+    },
+    {
+      "path": "mac/Tests/CloudModelTests.swift",
+      "sha256": "6f994016205c2ef9a023b4a27490735c6135cbed81f24dd88fd4d4772a06a3fe"
+    },
+    {
+      "path": "mac/Tests/DataFunctionalityTests.swift",
+      "sha256": "432a4cc0bb3feeba4b0633ff4a6d130fca77f70691645e4802e35b839271b209"
+    },
+    {
+      "path": "mac/Tests/DataPrivacyTests.swift",
+      "sha256": "6ed0380ef1b5256197b930f3c131a03d41971cc2e42e55e1518162f087a840cd"
+    },
+    {
+      "path": "mac/Tests/DataRecoveryTests.swift",
+      "sha256": "e67f418b3c74b2eb40324c7f186d0857270a4ed1df699b5e85ea5abee7fe570a"
+    },
+    {
+      "path": "mac/Tests/DataTestSupport.swift",
+      "sha256": "2ef8a66bea0ee5e2e45549431e55820f2cb9d1840901efb0aa6cfdbdd440cf0f"
+    },
+    {
+      "path": "mac/Tests/DataWatchTests.swift",
+      "sha256": "cb8e9074f34f1a3161b441fb56674d623a918a0eeb6b8f73476a33089029a8b6"
+    },
+    {
+      "path": "mac/Tests/LifecycleCommandTests.swift",
+      "sha256": "ca8c263f3bf18663a8f6452ab0eb195619e5b61262c394f2115236088419286d"
+    },
+    {
+      "path": "mac/Tests/PrivacyAcceptanceTests.swift",
+      "sha256": "6064dbda5287541128257bbefaa86d2fff4c13e29bb691086a488ae062341934"
+    },
+    {
+      "path": "mac/Tests/RecoveryAcceptanceTests.swift",
+      "sha256": "43b4340fa7d0b274e228bd312fcb53bb629a8d0feb0e1fd1d5c3a7ed37133816"
+    },
+    {
+      "path": "mac/Tests/TodayModelTests.swift",
+      "sha256": "cea92e1f40cd510179400d3f2e7a9d40da3267fd655671d780fec6f214f2f605"
+    },
+    {
+      "path": "mac/icon/AppIcon.icns",
+      "sha256": "0be9ebc7addcb9e7a6ee058a8caacd1538692278f441c530f16fe018ebc52b7e"
+    },
+    {
+      "path": "mac/icon/AppIcon.png",
+      "sha256": "e260e3d59306a76449f364d5fe9d8f8854f22d66b0b1590a540dda34edb9b20c"
+    },
+    {
+      "path": "service/api.py",
+      "sha256": "abd73653b6e5268891ec9d5f6fb0e49c9a8c6262bf736e10dd24c50953a90315"
+    },
+    {
+      "path": "service/backup.py",
+      "sha256": "b8556855b06711d21a031bd8cd73b2c2a7b85c75d5cefd220d929e1652e474b4"
+    },
+    {
+      "path": "service/bark.py",
+      "sha256": "98561d5bf6c91748c45bd26337bbca4306dbcd0e281917ce5200a58ac658c553"
+    },
+    {
+      "path": "service/requirements-dev.txt",
+      "sha256": "934fbb549ab3209320a68f549631f92ffa7dcd1372d15620c148eb5f55bd7735"
+    },
+    {
+      "path": "service/requirements.txt",
+      "sha256": "6d81762c84bee3526c80874110aed65efd45a31b8c016fe5c96310597236b939"
+    },
+    {
+      "path": "service/smoke.py",
+      "sha256": "dcd0c24bf0bf30c03b6fa788d4a82d1d91617384bd6f90dba7873821ebd44df4"
+    },
+    {
+      "path": "service/templates/app.html",
+      "sha256": "dcc8ac9bcb76e382732a0375253638ecda678a9cae0bbc7ee3b15ef77485a8ef"
+    },
+    {
+      "path": "service/templates/bark.html",
+      "sha256": "598eda074bd6dbdfd2d7599a1b4e876a92874155539a9dc8009ff75e94ecbaa9"
+    },
+    {
+      "path": "service/tests/test_bark.py",
+      "sha256": "e4f703cfa11aa1a5a8bf0440c243ffecba3f1233f3559958c38d05252cee5bf5"
+    },
+    {
+      "path": "service/tests/test_runtime.py",
+      "sha256": "2be5ae3e7619325f0c14b4f5b288f6c510af8516dffbdafa0f7209944482feda"
+    },
+    {
+      "path": "service/ui.json",
+      "sha256": "47d3334800b32a18329bd05c99e5d994224aee1ac0e376ca18d95ebde48bc75f"
+    }
+  ],
+  "private_history_included": false,
+  "fixtures": "synthetic only"
+}
